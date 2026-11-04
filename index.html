@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Бесконечная двоичная матрица. Непрерывный зум, точные координаты и рекурсивное представление старших разрядов." />
+    <title>Binary Fractal Viewer</title>
+  </head>
+  <body>
+    <main aria-label="Binary Fractal Viewer">
+      <canvas id="matrix" tabindex="0" aria-label="Двоичная матрица. Колесо или два пальца — масштаб; перетаскивание — перемещение. Плюс и минус — масштаб, стрелки — перемещение, ноль — сброс."></canvas>
+      <nav aria-label="Масштаб">
+        <button id="zoom-in" type="button" aria-label="Приблизить" title="Приблизить · удерживайте для ускорения">+</button>
+        <button id="zoom-out" type="button" aria-label="Отдалить" title="Отдалить · удерживайте для ускорения">−</button>
+        <button id="reset" type="button" aria-label="Сбросить вид" title="Сбросить вид · 0">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9a7 7 0 1 1-.2 5M5 4v5h5" /></svg>
+        </button>
+      </nav>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

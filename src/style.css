@@ -1,0 +1,15 @@
+:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #000; }
+* { box-sizing: border-box; }
+html, body, main { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+body { position: fixed; inset: 0; overscroll-behavior: none; }
+main { position: relative; }
+canvas { display: block; width: 100%; height: 100%; background: #000; touch-action: none; cursor: grab; outline: none; }
+canvas.dragging { cursor: grabbing; }
+canvas:focus-visible { box-shadow: inset 0 0 0 1px #777; }
+nav { position: absolute; bottom: max(24px, env(safe-area-inset-bottom)); right: max(24px, env(safe-area-inset-right)); display: flex; gap: 1px; padding: 4px; border: 1px solid #383838; border-radius: 16px; background: #0c0c0ce8; user-select: none; }
+button { width: 48px; height: 48px; border: 0; border-radius: 11px; color: #fff; background: transparent; font: 300 28px/1 system-ui, sans-serif; cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; }
+button:hover { background: #242424; }
+button:active { background: #383838; }
+button:focus-visible { outline: 2px solid white; outline-offset: -3px; }
+button svg { width: 21px; height: 21px; vertical-align: middle; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 600px) { nav { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); } }
