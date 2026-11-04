@@ -12,6 +12,7 @@ export class Camera {
   scale = new Scale();
   x = new Dyadic();
   y = new Dyadic();
+  start = 0n;
   width = 1;
   height = 1;
 
@@ -21,7 +22,7 @@ export class Camera {
     const cell = Math.min(40, Math.max(24, width / 14));
     this.scale = new Scale(Scale.delta(Math.log2(cell)));
     this.x = units(-width * 0.18, this.scale.column);
-    this.y = units(height * 0.38, this.scale);
+    this.y = Dyadic.term(this.start).add(units(height / 2, this.scale));
   }
 
   anchor(point: Point): Anchor {

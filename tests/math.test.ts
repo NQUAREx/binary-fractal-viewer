@@ -103,7 +103,7 @@ describe('recursive run renderer', () => {
     const rects = rectangles(c);
     for (let n = 0; n < 32; n++) for (let j = 0; j < 16; j++) {
       const originalN = BigInt(n) << q;
-      expect(sample(rects, 384 - (j + 0.5) * 16, (n + 0.5) * 16))
+      expect(sample(rects, 264 - (j + 0.5), 240 + (n + 0.5)))
         .toBe(Number((originalN >> (q + BigInt(j))) & 1n));
     }
   });
@@ -133,8 +133,8 @@ describe('recursive run renderer', () => {
         for (const n of Object.values(r)) expect(Number.isFinite(n)).toBe(true);
         expect(r.width).toBeGreaterThan(0); expect(r.height).toBeGreaterThan(0);
       });
-      expect(stats.rectangles).toBeLessThan(1000);
-      expect(stats.columns).toBeLessThan(125);
+      expect(stats.rectangles).toBeLessThan(4 * c.height + c.width);
+      expect(stats.columns).toBeLessThan(c.width + 2);
       expect(stats.blocks).toBeLessThan(20);
     }
   });

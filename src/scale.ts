@@ -5,7 +5,7 @@ import { floorDiv } from './dyadic';
 // 2^-48 octaves. Ordinary +delta/-delta pairs cancel exactly.
 export const TICKS = 1n << 48n;
 export const FRACTION = Number(TICKS);
-export const MIN_COLUMN_LOG = 4n;
+export const MIN_COLUMN_LOG = 0n;
 
 export class Scale {
   constructor(public ticks = 5n * TICKS) {}

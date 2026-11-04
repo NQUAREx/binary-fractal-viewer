@@ -1,8 +1,9 @@
 import './style.css';
-import { Camera } from './camera';
+import { Camera, units } from './camera';
 import { Controls } from './controls';
 import { paint } from './render';
 import { Scale } from './scale';
+import { Dyadic } from './dyadic';
 
 const canvas = document.querySelector<HTMLCanvasElement>('#matrix')!;
 const ctx = canvas.getContext('2d', { alpha: false });
@@ -42,3 +43,19 @@ new ResizeObserver(() => {
 }).observe(canvas);
 window.addEventListener('resize', draw);
 draw();
+
+const startInput = document.querySelector<HTMLInputElement>('#start')!;
+const form = document.querySelector<HTMLFormElement>('#start-form')!;
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const value = startInput.value.trim();
+  if (!/^\d+$/.test(value)) { startInput.setCustomValidity('Введите целое неотрицательное число'); startInput.reportValidity(); return; }
+  startInput.setCustomValidity('');
+  camera.start = BigInt(value);
+  controls.cancel();
+  camera.y = Dyadic.term(camera.start).add(units(camera.height / 2, camera.scale));
+  controls.resized();
+});
+startInput.addEventListener('input', () => startInput.setCustomValidity(''));
+const initialStart = new URLSearchParams(location.hash.slice(1)).get('start');
+if (initialStart && /^\d+$/.test(initialStart)) { startInput.value = initialStart; form.requestSubmit(); }

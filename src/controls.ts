@@ -117,6 +117,7 @@ export class Controls {
     this.step(Scale.delta(delta), p);
   };
   private keydown = (event: KeyboardEvent): void => {
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
     if (event.ctrlKey || event.altKey || event.metaKey) return;
     const direction = ['+', '='].includes(event.key) ? 1n : ['-', '_'].includes(event.key) ? -1n : 0n;
     if (direction) {

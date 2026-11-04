@@ -10,6 +10,7 @@
   <body>
     <main aria-label="Binary Fractal Viewer">
       <canvas id="matrix" tabindex="0" aria-label="Двоичная матрица. Колесо или два пальца — масштаб; перетаскивание — перемещение. Плюс и минус — масштаб, стрелки — перемещение, ноль — сброс."></canvas>
+      <form id="start-form"><label for="start">Начальное число</label><input id="start" inputmode="numeric" value="0" pattern="[0-9]+" required aria-label="Начальное число"/><button type="submit">Перейти</button></form>
       <nav aria-label="Масштаб">
         <button id="zoom-in" type="button" aria-label="Приблизить" title="Приблизить · удерживайте для ускорения">+</button>
         <button id="zoom-out" type="button" aria-label="Отдалить" title="Отдалить · удерживайте для ускорения">−</button>

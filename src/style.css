@@ -13,3 +13,7 @@ button:active { background: #383838; }
 button:focus-visible { outline: 2px solid white; outline-offset: -3px; }
 button svg { width: 21px; height: 21px; vertical-align: middle; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 600px) { nav { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); } }
+
+#start-form { position: absolute; top: max(16px, env(safe-area-inset-top)); left: 16px; display:flex; align-items:center; gap:8px; padding:8px 12px; background:#111e; border:1px solid #383838; border-radius:12px; max-width:calc(100% - 32px); font-size:12px; }
+#start { min-width:0; width:160px; background:#000; color:white; border:1px solid #555; padding:9px; border-radius:6px; }
+#start-form button { font-size:13px; width:auto; padding:0 10px; height:36px; }

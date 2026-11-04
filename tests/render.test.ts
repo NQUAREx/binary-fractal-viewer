@@ -21,7 +21,7 @@ describe('software raster and performance', () => {
       if (exponent) camera.zoom(Scale.decimalExponent(exponent), camera.anchor({ x: width * .68, y: height * .12 }));
       const stats = paint(context as unknown as CanvasRenderingContext2D, camera);
       expect(stats.rectangles).toBeGreaterThan(0);
-      expect(stats.rectangles).toBeLessThan(500);
+      expect(stats.rectangles).toBeLessThan(4 * camera.height + camera.width);
       const pixels = context.getImageData(0, 0, width, height).data;
       let white = 0;
       let nonGray = 0;
@@ -46,7 +46,7 @@ describe('software raster and performance', () => {
       camera.zoom(new Scale(camera.scale.ticks - Scale.delta(.037)), anchor);
       const stats = paint(context as unknown as CanvasRenderingContext2D, camera);
       times.push(performance.now() - start);
-      expect(stats.rectangles).toBeLessThan(500);
+      expect(stats.rectangles).toBeLessThan(4 * camera.height + camera.width);
     }
     times.sort((a, b) => a - b);
     const report = { frames: times.length, width: 1280, height: 800, medianMs: times[150], p95Ms: times[285], maxMs: times[299] };

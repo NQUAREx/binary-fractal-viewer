@@ -12,7 +12,7 @@ function magnitude(scale: Scale, extra = 0n): number {
 }
 
 /** The renderer emits exact constant-bit runs, never enumerates hidden rows.
- * Structural chart: r=max(0,4-log₂(s)), q=floor(r), t=r-q.
+ * Structural chart: r=max(0,-log₂(s)), q=floor(r), t=r-q.
  * Column j represents ORIGINAL bit k=q+j and each coarse row 2^q rows.
  * B(n,k)=B(floor(n/2^q),k-q), k>=q. Column projection is x=r-k.
  * Low column q fades out as t→1; all other runs coincide at the transition.
